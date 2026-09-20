@@ -1,0 +1,10 @@
+ARG BUILD_FROM=ghcr.io/home-assistant/generic-x86-64-homeassistant:2026.9.3
+FROM ${BUILD_FROM}
+
+COPY homeassistant/components/esphome/assist_satellite.py /usr/src/homeassistant/homeassistant/components/esphome/assist_satellite.py
+COPY homeassistant/components/tts/__init__.py /usr/src/homeassistant/homeassistant/components/tts/__init__.py
+COPY homeassistant/components/tts/entity.py /usr/src/homeassistant/homeassistant/components/tts/entity.py
+COPY homeassistant/components/wyoming/assist_satellite.py /usr/src/homeassistant/homeassistant/components/wyoming/assist_satellite.py
+
+LABEL org.opencontainers.image.description="Home Assistant Core 2026.9.3 with TTS interruption propagation"
+LABEL org.opencontainers.image.source="https://github.com/matt123p/core"
