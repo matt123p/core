@@ -1,0 +1,5 @@
+FROM ghcr.io/home-assistant/generic-x86-64-homeassistant:2026.9.3
+
+# Give Supervisor a distinct temporary version so it can transition back to
+# the official 2026.9.3 repository without downgrading Core.
+LABEL io.hass.version="2026.9.3-official1"
