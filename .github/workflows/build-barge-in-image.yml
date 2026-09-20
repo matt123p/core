@@ -10,6 +10,7 @@ on:
       - Dockerfile.barge-in
       - Dockerfile.barge-in-rollback
       - homeassistant/components/esphome/assist_satellite.py
+      - homeassistant/components/esphome/wav_parser.py
       - homeassistant/components/tts/__init__.py
       - homeassistant/components/tts/entity.py
       - homeassistant/components/wyoming/assist_satellite.py
@@ -47,7 +48,7 @@ jobs:
           push: true
           tags: |
             ${{ env.IMAGE_NAME }}:2026.9.3
-            ${{ env.IMAGE_NAME }}:2026.9.3-bargein1
+            ${{ env.IMAGE_NAME }}:2026.9.3-bargein2
             ${{ env.IMAGE_NAME }}:latest
 
       - name: Build and publish rollback bridge
