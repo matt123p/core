@@ -50,6 +50,11 @@ from tests.typing import ClientSessionGenerator, WebSocketGenerator
 ORIG_WRITE_TAGS = tts.SpeechManager.write_tags
 
 
+async def get_stream_data(stream: tts.ResultStream) -> bytes:
+    """Get all data of a result stream."""
+    return b"".join([chunk async for chunk in stream.async_stream_result()])
+
+
 async def test_config_entry_unload(
     hass: HomeAssistant,
     hass_client: ClientSessionGenerator,
