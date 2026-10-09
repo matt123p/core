@@ -19,15 +19,20 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 env:
   IMAGE_NAME: ghcr.io/${{ github.repository_owner }}/ha-core-barge-in
 
 jobs:
   build:
+    name: Build and publish Core images
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      packages: write
+      packages: write # To push images to GHCR
     steps:
       - name: Check out source
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
